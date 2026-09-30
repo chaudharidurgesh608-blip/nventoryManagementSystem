@@ -1,0 +1,81 @@
+========================================================================================
+INVENTORY MANAGEMENT SYSTEM (IMS) - BCA MAJOR PROJECT
+ALL-IN-ONE SETUP & VIVA INSTRUCTIONS GUIDE
+========================================================================================
+
+Project Overview:
+-----------------
+- Role: Complete Multi-Tier Web Application for Enterprise Stock & Inventory Tracking
+- Frontend: HTML5, CSS3, JavaScript (ES6+), Bootstrap 5, Bootstrap Icons
+- Backend: C#, ASP.NET Core 8 Web API, Entity Framework Core 8
+- Database: Microsoft SQL Server 2022 (Connected via EF Core DbContext)
+- Security: ASP.NET Core Identity, JWT Bearer Authentication, Role-based Access Control (Admin / User)
+- Cloud & Local Dual-Mode: Works locally connected to SQL Server AND deployed on Vercel with instant cloud fallback!
+
+Folder Structure:
+-----------------
+📁 InventoryManagementSystem/
+  ├── 📁 Backend/
+  │    └── 📁 InventoryManagement.API/      -> C# ASP.NET Core Web API Controllers, Models, Data, DTOs
+  ├── 📁 Frontend/                          -> Responsive UI (Dashboard, Products, Stock, Transactions, Auth)
+  ├── 📁 Database/                          -> InventoryManagementDb_FullScript.sql (Ready-to-run SQL Script)
+  ├── 📁 Docs/                              -> Complete Project Report (.md), Viva Guide (.md), Presentation (.md)
+  ├── README.md                             -> Project documentation and architectural overview
+  └── PROJECT_SETUP_INSTRUCTIONS.txt        -> This quick setup guide
+
+========================================================================================
+HOW TO RUN ON YOUR LAPTOP (FOR COLLEGE VIVA / EXAMINER EVALUATION)
+========================================================================================
+
+Step 1: Database Setup (1 Minute)
+---------------------------------
+1. Open SSMS (SQL Server Management Studio).
+2. Connect to your local SQL Server instance (e.g. localhost or .\SQLEXPRESS or your PC name).
+3. Click "File" -> "Open" -> "File..." and select:
+   Database/InventoryManagementDb_FullScript.sql
+4. Click "Execute" (F5).
+5. Done! The database 'InventoryManagementDb' with all tables and sample data is created.
+
+Step 2: Run the Backend API (1 Minute)
+--------------------------------------
+1. Open PowerShell or Command Prompt.
+2. Navigate to the backend folder:
+   cd Backend\InventoryManagement.API
+3. Start the ASP.NET Core API server:
+   dotnet run --urls "http://localhost:5177"
+4. The backend is now live at:
+   - API Base: http://localhost:5177/api
+   - Swagger Documentation: http://localhost:5177/swagger
+
+Step 3: Open the Frontend Website (10 Seconds)
+----------------------------------------------
+1. Simply double-click "Frontend/index.html" or "Frontend/login.html" in your browser!
+2. Default Admin Credentials:
+   - Email:    admin@ims.com
+   - Password: Admin@123
+3. That's it! The system will connect to your real SQL Server database!
+
+========================================================================================
+HOW TO RUN ON VERCEL / GITHUB (ONLINE LIVE LINK)
+========================================================================================
+1. Push this folder to your GitHub repository.
+2. Link your GitHub repository to Vercel.
+3. In Vercel Project Settings:
+   - Root Directory: Set to "Frontend" (or leave as root with index.html)
+4. Deploy!
+5. Thanks to the Smart Dual-Mode in Frontend/js/api.js, your Vercel website works 100%
+   online even without a cloud SQL server, using intelligent browser local storage!
+   Anyone visiting your Vercel URL can sign in with admin@ims.com / Admin@123, view
+   the real-time dashboard, add products, perform stock in/out, and audit transactions!
+
+========================================================================================
+VIVA RAPID CHEAT SHEET:
+========================================================================================
+Q: What is the architecture of your project?
+A: 3-Tier Architecture (Presentation Layer: HTML5/CSS3/Bootstrap/JS; Application/Logic Layer: ASP.NET Core 8 Web API; Data Layer: Entity Framework Core 8 with Microsoft SQL Server 2022).
+
+Q: How is security handled?
+A: Passwords are encrypted using PBKDF2 hashing via ASP.NET Core Identity. API endpoints are secured using JSON Web Tokens (JWT) with role-based authorization (Admin & User).
+
+Q: How is stock integrity maintained?
+A: Transactions are executed atomically; during Stock OUT, the system verifies available quantity against required quantity to prevent negative stock.
