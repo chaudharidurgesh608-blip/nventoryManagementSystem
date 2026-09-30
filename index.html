@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory Management System (IMS)</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom py-3">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <i class="bi bi-box-seam-fill text-primary fs-3 me-2"></i>
+        <span>Inventory Hub</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-span"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="categories.html">Categories</a></li>
+          <li class="nav-item"><a class="nav-link" href="suppliers.html">Suppliers</a></li>
+          <li class="nav-item"><a class="nav-link" href="stock.html">Stock In/Out</a></li>
+          <li class="nav-item"><a class="nav-link" href="transactions.html">Transactions</a></li>
+        </ul>
+        <div id="navbar-auth-section" class="d-flex align-items-center"></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section text-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <span class="badge bg-primary px-3 py-2 rounded-pill mb-3 text-uppercase fw-bold letter-spacing">
+            BCA Major Project
+          </span>
+          <h1 class="display-4 fw-bold mb-3">Inventory Management System</h1>
+          <p class="lead text-light mb-4">
+            A comprehensive, enterprise-ready web application to track warehouse stock, monitor stock-in & stock-out operations, manage vendors, and prevent inventory shortages with automated alerts.
+          </p>
+          <div class="d-flex justify-content-center gap-3">
+            <a href="login.html" class="btn btn-primary btn-lg px-4 shadow">
+              <i class="bi bi-box-arrow-in-right me-2"></i> Get Started (Login)
+            </a>
+            <a href="dashboard.html" class="btn btn-outline-light btn-lg px-4">
+              <i class="bi bi-speedometer2 me-2"></i> View Dashboard
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Live Statistics Preview -->
+  <section class="py-5 bg-white border-bottom">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h4 class="fw-bold">Warehouse Overview</h4>
+        <p class="text-muted">Live inventory counters connected to Microsoft SQL Server</p>
+      </div>
+      <div class="row g-4 text-center">
+        <div class="col-md-3 col-6">
+          <div class="p-3 border rounded-3 bg-light">
+            <i class="bi bi-box-seam fs-1 text-primary mb-2"></i>
+            <h3 class="fw-bold mb-1" id="stat-products">--</h3>
+            <span class="text-muted small">Total Products</span>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="p-3 border rounded-3 bg-light">
+            <i class="bi bi-tags fs-1 text-info mb-2"></i>
+            <h3 class="fw-bold mb-1" id="stat-categories">--</h3>
+            <span class="text-muted small">Categories</span>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="p-3 border rounded-3 bg-light">
+            <i class="bi bi-truck fs-1 text-success mb-2"></i>
+            <h3 class="fw-bold mb-1" id="stat-suppliers">--</h3>
+            <span class="text-muted small">Suppliers</span>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="p-3 border rounded-3 bg-light">
+            <i class="bi bi-currency-rupee fs-1 text-warning mb-2"></i>
+            <h3 class="fw-bold mb-1" id="stat-value">--</h3>
+            <span class="text-muted small">Inventory Valuation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Features Highlights -->
+  <section class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h3 class="fw-bold">Key Project Features</h3>
+        <p class="text-muted">Designed according to BCA project guidelines & industry best practices</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="custom-card p-4 h-100">
+            <div class="bg-primary text-white rounded-3 p-3 d-inline-block mb-3">
+              <i class="bi bi-shield-lock-fill fs-3"></i>
+            </div>
+            <h5 class="fw-bold">Role-Based Security</h5>
+            <p class="text-muted mb-0">Powered by ASP.NET Core Identity with secure password hashing and JWT token authorization for Admin and User roles.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="custom-card p-4 h-100">
+            <div class="bg-success text-white rounded-3 p-3 d-inline-block mb-3">
+              <i class="bi bi-arrow-left-right fs-3"></i>
+            </div>
+            <h5 class="fw-bold">Stock In & Stock Out</h5>
+            <p class="text-muted mb-0">Strict business logic protects against negative stock issuance while maintaining a comprehensive transaction audit trail.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="custom-card p-4 h-100">
+            <div class="bg-warning text-white rounded-3 p-3 d-inline-block mb-3">
+              <i class="bi bi-exclamation-triangle-fill fs-3"></i>
+            </div>
+            <h5 class="fw-bold">Low Stock Warning System</h5>
+            <p class="text-muted mb-0">Real-time status badges automatically tag items as In Stock, Low Stock, or Out of Stock to prevent warehouse shortages.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      <p class="mb-1 fw-bold text-white">Inventory Management System (IMS)</p>
+      <small>Developed with ASP.NET Core 8 Web API, Entity Framework Core, SQL Server & Bootstrap 5</small>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    // Fetch live summary stats to show on Landing Page
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        const summary = await apiRequest('/dashboard/summary');
+        if (summary) {
+          document.getElementById('stat-products').innerText = summary.totalProducts;
+          document.getElementById('stat-categories').innerText = summary.totalCategories;
+          document.getElementById('stat-suppliers').innerText = summary.totalSuppliers;
+          document.getElementById('stat-value').innerText = '₹' + Number(summary.totalInventoryValue).toLocaleString('en-IN');
+        }
+      } catch (err) {
+        console.warn('Could not load live stats:', err);
+      }
+    });
+  </script>
+</body>
+</html>
